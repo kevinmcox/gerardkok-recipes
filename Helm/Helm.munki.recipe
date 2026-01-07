@@ -44,6 +44,9 @@
                 <true/>
                 <key>unattended_uninstall</key>
                 <true/>
+                <key>version_script</key>
+                <string>#!/bin/sh
+/usr/local/bin/helm version | /usr/bin/awk 'match($0,/Version:"v[^"]*/){print substr($0,RSTART+10,RLENGTH-10); exit}'</string>
             </dict>
         </dict>
         <key>MinimumVersion</key>
